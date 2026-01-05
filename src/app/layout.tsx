@@ -74,7 +74,7 @@ export default function RootLayout({
       >
         <ThemeProvider>
           <Header />
-          <main className="flex-1 overflow-hidden" id="main-content">
+          <main className="flex-1 overflow-y-auto" id="main-content">
             {children}
           </main>
         </ThemeProvider>
