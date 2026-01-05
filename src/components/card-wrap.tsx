@@ -17,7 +17,7 @@ export const CardWrap: React.FC<PropsWithChildren<CardWrapProps>> = ({
   return (
     <Card className={cn('h-full gap-4 py-3', className)}>
       <CardHeader className="flex items-center justify-between h-8">
-        <h2 className="font-medium text-gray-900">{title}</h2>
+        <h2 className="font-medium text-foreground">{title}</h2>
         <div className="flex gap-2">{extra}</div>
       </CardHeader>
       <CardContent className="px-4 flex-1 overflow-hidden">{children}</CardContent>

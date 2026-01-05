@@ -2,10 +2,11 @@ import { GithubIcon, SparkleIcon } from 'lucide-react';
 import Link from 'next/link';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
+import { ThemeToggle } from './theme-toggle';
 
 export const Header = () => {
   return (
-    <header className="sticky top-0 z-10 border-gray-200 border-b bg-white">
+    <header className="sticky top-0 z-10 border border-b bg-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center gap-4">
           <div className="flex flex-1 items-center gap-3">
@@ -15,7 +16,7 @@ export const Header = () => {
                   aria-hidden="true"
                   className="h-6 w-6 text-pink-500"
                 />
-                <h1 className="font-bold text-gray-900 text-xl">
+                <h1 className="font-bold text-foreground text-xl">
                   小红书图片生成器
                 </h1>
               </div>
@@ -31,6 +32,7 @@ export const Header = () => {
             <Button asChild className="text-accent-foreground" variant="link">
               <Link href="/changelog">更新日志</Link>
             </Button>
+            <ThemeToggle />
             <Button
               asChild
               size="icon"

@@ -80,11 +80,11 @@ export const PreviewCard = () => {
     >
       <div className="h-full overflow-auto">
         {segments.length === 0 ? (
-          <div className="flex h-full w-[300px] items-center justify-center text-gray-500">
+          <div className="flex h-full w-[300px] items-center justify-center text-muted-foreground">
             <div className="text-center">
-              <FileText className="mx-auto mb-3 h-12 w-12 text-gray-300" />
+              <FileText className="mx-auto mb-3 h-12 w-12 text-muted-foreground/50" />
               <p>请在左侧输入 Markdown 内容</p>
-              <p className="mt-1 text-gray-400 text-sm">
+              <p className="mt-1 text-muted-foreground/70 text-sm">
                 使用 ## 二级标题来分割不同的图片
               </p>
             </div>
@@ -96,7 +96,7 @@ export const PreviewCard = () => {
                 <div className="absolute top-2 left-0 z-10 flex w-full items-center justify-between gap-4 px-3 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                   <span />
                   <Button
-                    className="gap-1"
+                    className="gap-1 !bg-background/95 !text-foreground !border-border backdrop-blur-sm shadow-sm hover:!bg-accent"
                     disabled={isExporting}
                     onClick={() => handleExportSingle(index)}
                     size="sm"

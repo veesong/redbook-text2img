@@ -3,6 +3,7 @@ import { Analytics } from '@vercel/analytics/next';
 import type { Metadata, Viewport } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { Header } from '@/components/header';
+import { ThemeProvider } from '@/components/theme-provider';
 import { baseMetadata, structuredData } from '@/lib/seo-config';
 import './globals.css';
 
@@ -51,7 +52,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh-CN">
+    <html lang="zh-CN" suppressHydrationWarning>
       <head>
         {structuredData.map((data, index) => (
           <script
@@ -69,12 +70,14 @@ export default function RootLayout({
         <link href="/icon-192.png" rel="apple-touch-icon" sizes="192x192" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} flex h-screen max-h-screen flex-col bg-gray-50`}
+        className={`${geistSans.variable} ${geistMono.variable} flex h-screen max-h-screen flex-col bg-background`}
       >
-        <Header />
-        <main className="flex-1 overflow-hidden" id="main-content">
-          {children}
-        </main>
+        <ThemeProvider>
+          <Header />
+          <main className="flex-1 overflow-hidden" id="main-content">
+            {children}
+          </main>
+        </ThemeProvider>
         <Analytics />
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ''} />
       </body>

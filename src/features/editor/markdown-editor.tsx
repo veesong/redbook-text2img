@@ -1,34 +1,24 @@
 'use client';
 
-import { memo, useCallback, useEffect, useState } from 'react';
+import { memo, useCallback } from 'react';
 import CodeMirror from '@uiw/react-codemirror';
 import { markdown, markdownLanguage } from '@codemirror/lang-markdown';
 import { languages } from '@codemirror/language-data';
 import { githubLight, githubDark } from '@uiw/codemirror-theme-github';
 import { useMarkdownContentStore } from '@/store/markdownContent';
+import { useShowSettingStore } from '@/store/styleConfig';
+import { useThemeStore } from '@/store/theme';
+import { cn } from '@/lib/utils';
 
 interface MarkdownEditorProps {
   placeholder?: string;
 }
 
-function useIsDarkMode() {
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    setIsDark(mediaQuery.matches);
-
-    const handler = (e: MediaQueryListEvent) => setIsDark(e.matches);
-    mediaQuery.addEventListener('change', handler);
-    return () => mediaQuery.removeEventListener('change', handler);
-  }, []);
-
-  return isDark;
-}
-
 export const MarkdownEditor = memo(({ placeholder }: MarkdownEditorProps) => {
   const { content, setContent } = useMarkdownContentStore();
-  const isDarkMode = useIsDarkMode();
+  const isShowSetting = useShowSettingStore((state) => state.isShowSetting);
+  const { getEffectiveTheme } = useThemeStore();
+  const isDarkMode = getEffectiveTheme() === 'dark';
 
   const handleChange = useCallback(
     (value: string) => {
@@ -38,7 +28,7 @@ export const MarkdownEditor = memo(({ placeholder }: MarkdownEditorProps) => {
   );
 
   return (
-    <div className="h-full overflow-hidden">
+    <div className={cn("h-full overflow-hidden", isShowSetting ? 'w-[200px]' : '')}>
       <CodeMirror
         value={content}
         onChange={handleChange}

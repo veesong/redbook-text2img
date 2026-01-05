@@ -11,8 +11,8 @@ const FAQPage = () => {
   return (
     <div className="container mx-auto max-w-4xl px-4 py-8">
       <div className="mb-8">
-        <h1 className="mb-2 font-bold text-3xl text-gray-900">常见问题</h1>
-        <p className="text-gray-600">
+        <h1 className="mb-2 font-bold text-3xl text-foreground">常见问题</h1>
+        <p className="text-muted-foreground">
           关于小红书图片生成器的常见问题解答，帮助您快速上手使用。
         </p>
       </div>
@@ -20,22 +20,22 @@ const FAQPage = () => {
       <div className="space-y-6">
         {faqData.map((faq, index) => (
           <div
-            className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm"
+            className="rounded-lg border bg-card p-6 shadow-sm"
             key={index}
           >
-            <h2 className="mb-3 font-semibold text-gray-900 text-lg">
+            <h2 className="mb-3 font-semibold text-foreground text-lg">
               {faq.question}
             </h2>
-            <p className="leading-relaxed text-gray-600">{faq.answer}</p>
+            <p className="leading-relaxed text-muted-foreground">{faq.answer}</p>
           </div>
         ))}
       </div>
 
-      <div className="mt-12 rounded-lg bg-gray-100 p-6 text-center">
-        <h2 className="mb-2 font-semibold text-gray-900 text-lg">
+      <div className="mt-12 rounded-lg bg-muted p-6 text-center">
+        <h2 className="mb-2 font-semibold text-foreground text-lg">
           还有其他问题？
         </h2>
-        <p className="text-gray-600">
+        <p className="text-muted-foreground">
           欢迎在{' '}
           <a
             className="text-pink-500 underline hover:text-pink-600"
