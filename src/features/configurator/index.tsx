@@ -17,7 +17,7 @@ import {
   VerticalOptions,
 } from '@/lib/preset-config';
 import { mergeCoverConfig } from '@/lib/style-generator';
-import { showSettingStore, useStyleConfigStore } from '@/store/styleConfig';
+import { useShowSettingStore, useStyleConfigStore } from '@/store/styleConfig';
 import { ColorSelect } from './ColorSelect';
 
 const ConfigForm = ({
@@ -90,7 +90,7 @@ const ConfigForm = ({
 export const Configurator = memo(() => {
   const { styleConfig, setBuildInStyleConfig, setStyleConfig, isChange } =
     useStyleConfigStore();
-  const isShowSetting = showSettingStore((state) => state.isShowSetting);
+  const isShowSetting = useShowSettingStore((state) => state.isShowSetting);
   const handleStyleSelect = (styleId: string) => {
     const selectedStyle = defaultStyles.find((style) => style.id === styleId);
     if (selectedStyle) {

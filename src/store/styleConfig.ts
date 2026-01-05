@@ -32,7 +32,7 @@ interface ShowConfigState {
   switchShowSetting: () => void;
 }
 
-export const showSettingStore = create<ShowConfigState>()((set) => ({
+export const useShowSettingStore = create<ShowConfigState>()((set) => ({
   isShowSetting: false,
   switchShowSetting: () => {
     set((state) => ({ isShowSetting: !state.isShowSetting }));

@@ -9,15 +9,16 @@ import { useImageRefs } from '@/features/preview/hooks/use-image-refs';
 import { ImagePreview } from '@/features/preview/image-preview';
 import { parseMarkdownToImages } from '@/lib/markdown-parser';
 import { useMarkdownContentStore } from '@/store/markdownContent';
-import { showSettingStore } from '@/store/styleConfig';
+import { useShowSettingStore } from '@/store/styleConfig';
 import { useImageExport } from './hooks/use-image-export';
 import './index.css';
 
 export const PreviewCard = () => {
   const [isExporting, setIsExporting] = useState(false);
-  const switchShowSetting = showSettingStore(
+  const switchShowSetting = useShowSettingStore(
     (state) => state.switchShowSetting
   );
+  const { imageRefs, setImageRef } = useImageRefs();
 
   // 从 zustand store 获取 markdown 内容和重置方法
   const { content: markdown } = useMarkdownContentStore();
@@ -30,8 +31,6 @@ export const PreviewCard = () => {
   }, [segments]);
 
   const { exportSingleImage, exportAllImages } = useImageExport(title);
-
-  const { imageRefs, setImageRef } = useImageRefs();
 
   // 导出单张图片
   const handleExportSingle = async (index: number) => {
