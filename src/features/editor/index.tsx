@@ -1,7 +1,7 @@
 'use client';
 
 import { RotateCcwIcon } from 'lucide-react';
-import { CardWrap } from '@/components/card-wrap';
+import { Card } from '@/components/easy/card';
 import { Button } from '@/components/ui/button';
 import { useMarkdownContentStore } from '@/store/markdownContent';
 import { MarkdownEditor } from './markdown-editor';
@@ -10,9 +10,8 @@ export const EditorCard = () => {
   const { resetContent, isChange } = useMarkdownContentStore();
 
   return (
-    <CardWrap
-      className="flex-1"
-      extra={
+    <Card
+      action={
         isChange && (
           <Button onClick={resetContent} size="sm" variant="outline">
             <RotateCcwIcon className="h-4 w-4" />
@@ -20,9 +19,10 @@ export const EditorCard = () => {
           </Button>
         )
       }
+      className="flex-1 gap-3"
       title="Markdown 编辑器"
     >
       <MarkdownEditor placeholder="在这里输入您的 Markdown 内容..." />
-    </CardWrap>
+    </Card>
   );
 };

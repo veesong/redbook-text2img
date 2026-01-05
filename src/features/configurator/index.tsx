@@ -2,7 +2,7 @@
 
 import { Palette, Trash2 } from 'lucide-react';
 import { memo } from 'react';
-import { Card } from '@/components/enhance/card';
+import { Card } from '@/components/easy/card';
 import { Select } from '@/components/enhance/select';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -27,7 +27,7 @@ const ConfigForm = ({
   config: Partial<ContentConfig>;
   onConfigChange: (change: Partial<ContentConfig>) => void;
 }) => (
-  <>
+  <div className="space-y-4">
     <div className="space-y-2">
       <Label className="font-medium text-sm">基准大小</Label>
       <div className="flex gap-2">
@@ -84,7 +84,7 @@ const ConfigForm = ({
         />
       </div>
     </div>
-  </>
+  </div>
 );
 
 export const Configurator = memo(() => {
@@ -138,10 +138,10 @@ export const Configurator = memo(() => {
         <Card
           contentClassName="flex space-x-4"
           title={
-            <>
-              <Palette className="h-4 w-4" />
-              样式选择
-            </>
+            <div>
+              <Palette className="mr-2 inline-flex h-4 w-4" />
+              <span>样式选择</span>
+            </div>
           }
         >
           <Select
@@ -180,13 +180,13 @@ export const Configurator = memo(() => {
           </div>
         </Card>
         <div className="flex gap-4">
-          <Card contentClassName="space-y-4" title="内容设置">
+          <Card title="内容设置">
             <ConfigForm
               config={styleConfig.content}
               onConfigChange={handleContentChange}
             />
           </Card>
-          <Card contentClassName="space-y-4" title="封面设置">
+          <Card title="封面设置">
             <ConfigForm
               config={mergeCoverConfig(styleConfig.content, styleConfig.cover)}
               onConfigChange={handleCoverChange}

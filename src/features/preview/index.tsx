@@ -2,7 +2,7 @@
 
 import { Download, FileText, ImageDownIcon, PaletteIcon } from 'lucide-react';
 import { useMemo, useState } from 'react';
-import { CardWrap } from '@/components/card-wrap';
+import { Card } from '@/components/easy/card';
 import { Tooltip } from '@/components/tooltip';
 import { Button } from '@/components/ui/button';
 import { useImageRefs } from '@/features/preview/hooks/use-image-refs';
@@ -58,8 +58,8 @@ export const PreviewCard = () => {
   };
 
   return (
-    <CardWrap
-      extra={[
+    <Card
+      action={[
         <Tooltip content="设置样式" key="setting">
           <Button onClick={switchShowSetting} variant="outline">
             <PaletteIcon />
@@ -76,9 +76,11 @@ export const PreviewCard = () => {
           </Button>
         </Tooltip>,
       ]}
+      actionClassName='space-x-2'
+      className="gap-3"
       title="图片预览"
     >
-      <div className="h-full overflow-auto">
+      <div>
         {segments.length === 0 ? (
           <div className="flex h-full w-[300px] items-center justify-center text-muted-foreground">
             <div className="text-center">
@@ -115,6 +117,6 @@ export const PreviewCard = () => {
           </div>
         )}
       </div>
-    </CardWrap>
+    </Card>
   );
 };
