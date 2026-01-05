@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(superpowers:brainstorming)",
+      "Bash(cat:*)",
+      "Bash(npm run build:*)",
+      "Bash(bun build)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Skill(superpowers:systematic-debugging)",
+      "Bash(bun run build:*)"
+    ]
+  }
+}
