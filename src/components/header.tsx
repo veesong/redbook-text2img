@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
 import { ThemeToggle } from './theme-toggle';
+import { PWAInstallButton } from './pwa-install-button';
 
 export const Header = () => {
   return (
@@ -33,6 +34,7 @@ export const Header = () => {
               <Link href="/changelog">更新日志</Link>
             </Button>
             <ThemeToggle />
+            <PWAInstallButton />
             <Button
               asChild
               size="icon"

@@ -4,6 +4,7 @@ import type { Metadata, Viewport } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { Header } from '@/components/header';
 import { ThemeProvider } from '@/components/theme-provider';
+import { ServiceWorkerProvider } from '@/components/service-worker-provider';
 import { baseMetadata, structuredData } from '@/lib/seo-config';
 import './globals.css';
 
@@ -65,14 +66,15 @@ export default function RootLayout({
             type="application/ld+json"
           />
         ))}
-        <link as="image" href="/og.png" rel="preload" type="image/png" />
-        <link href="/icon-512.png" rel="apple-touch-icon" sizes="512x512" />
-        <link href="/icon-192.png" rel="apple-touch-icon" sizes="192x192" />
+        <link as="image" href="/redbook-text2img/og.png" rel="preload" type="image/png" />
+        <link href="/redbook-text2img/icon-512.png" rel="apple-touch-icon" sizes="512x512" />
+        <link href="/redbook-text2img/icon-192.png" rel="apple-touch-icon" sizes="192x192" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} flex h-screen max-h-screen flex-col bg-background`}
       >
         <ThemeProvider>
+          <ServiceWorkerProvider />
           <Header />
           <main className="flex-1 overflow-y-auto" id="main-content">
             {children}
