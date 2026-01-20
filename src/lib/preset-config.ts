@@ -106,6 +106,12 @@ export const Background = {
   blue: 'blue',
   linearGradient1: 'linearGradient1',
   linearGradient2: 'linearGradient2',
+  gradientPurplePink: 'gradientPurplePink',
+  gradientWarmSunset: 'gradientWarmSunset',
+  gradientFreshGreen: 'gradientFreshGreen',
+  gradientElegantFresh: 'gradientElegantFresh',
+  gradientDreamyPurple: 'gradientDreamyPurple',
+  gradientMinimalistGray: 'gradientMinimalistGray',
   TrianglifyGary: 'TrianglifyGary',
   custom: 'custom',
 };
@@ -142,6 +148,36 @@ export const BackgroundOptions = [
     value: Background.linearGradient2,
     relValue:
       'linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #334155 50%, #1e40af 75%, #3b82f6 100%)',
+  },
+  {
+    label: '紫粉渐变',
+    value: Background.gradientPurplePink,
+    relValue: 'linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%)',
+  },
+  {
+    label: '粉黄暖阳',
+    value: Background.gradientWarmSunset,
+    relValue: 'linear-gradient(to right, #fa709a 0%, #fee140 100%)',
+  },
+  {
+    label: '清新翠绿',
+    value: Background.gradientFreshGreen,
+    relValue: 'linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%)',
+  },
+  {
+    label: '淡雅清爽',
+    value: Background.gradientElegantFresh,
+    relValue: 'linear-gradient(to top, #fff1eb 0%, #ace0f9 100%)',
+  },
+  {
+    label: '梦幻紫蓝',
+    value: Background.gradientDreamyPurple,
+    relValue: 'linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%)',
+  },
+  {
+    label: '简约灰调',
+    value: Background.gradientMinimalistGray,
+    relValue: 'linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%)',
   },
   // 图片背景（base64编码的简约图案）
   {
