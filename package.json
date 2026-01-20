@@ -7,7 +7,8 @@
     "export": "next build",
     "start": "next start",
     "lint": "ultracite lint",
-    "generate-icons": "tsx scripts/generate-icons.ts"
+    "generate-icons": "tsx scripts/generate-icons.ts",
+    "test:basepath": "tsx scripts/test-basepath.ts"
   },
   "dependencies": {
     "@codemirror/lang-markdown": "^6.5.0",

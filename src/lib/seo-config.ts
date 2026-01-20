@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { generateFAQStructuredData } from './faq-data';
+import { withBasePath } from './config';
 
 // 网站基础信息
 export const siteConfig = {
@@ -8,7 +9,7 @@ export const siteConfig = {
     '将 Markdown 文本快速转换为精美的小红书风格图片，支持多种样式，一键导出下载。免费在线工具，无需注册。',
   url:
     process.env.NEXT_PUBLIC_SITE_URL || 'https://redbook-text2img.vercel.app',
-  ogImage: '/redbook-text2img/og.png',
+  ogImage: withBasePath('/og.png'),
   creator: '@simonwong',
   keywords: [
     '小红书',

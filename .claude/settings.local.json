@@ -6,7 +6,8 @@
       "Bash(npm run build:*)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Skill(superpowers:systematic-debugging)"
+      "Skill(superpowers:systematic-debugging)",
+      "Bash(NEXT_PUBLIC_BASE_PATH= pnpm tsx:*)"
     ]
   }
 }
